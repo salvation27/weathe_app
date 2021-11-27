@@ -11,6 +11,12 @@ export const fetchWeather = async (query) => {
      units: 'metric',
      appid: API_key,
    }
- });
+ })
+//  .then((response)=>{
+//    console.log('ответ',response)
+//  })
+//  .catch((error)=>{
+//    console.log('ошибка',error)
+//  })
  return data
 }

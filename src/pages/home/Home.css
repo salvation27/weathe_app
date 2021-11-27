@@ -1,0 +1,146 @@
+.wrapper_wether_serch {
+  margin: 0 auto;
+  width: 500px;
+}
+.wrapper_wether_serch h1 {
+  text-align: center;
+}
+.wrapper_wether_serch input {
+  border: 1px solid red;
+  width: 200px;
+  height: 40px;
+  /* padding-left: 20px; */
+  border-radius: 5px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+.wrapper_wether_serch button {
+  display: block;
+  width: 100px;
+  height: 40px;
+  margin: 10px auto;
+}
+.card_item {
+  width: 180px;
+  height: 270px;
+  position: relative;
+  z-index: 10;
+  margin:10px;
+  transition: .3s;
+  -webkit-box-shadow: 6px 6px 8px 0px rgba(0, 3, 6, 0.2);
+-moz-box-shadow: 6px 6px 8px 0px rgba(0, 3, 6, 0.2);
+box-shadow: 6px 6px 8px 0px rgba(0, 3, 6, 0.2);
+cursor: pointer;
+}
+.card_item:hover {
+-webkit-box-shadow: 6px 10px 8px 0px rgba(0, 3, 6, 0.4);
+-moz-box-shadow: 6px 10px 8px 0px rgba(0, 3, 6, 0.4);
+box-shadow: 6px 10px 8px 0px rgba(0, 3, 6, 0.4);
+}
+.card_name {
+  text-align: center;
+  color: rgb(247, 247, 226);
+  font-size: 25px;
+}
+.card_temp {
+  text-align: center;
+  font-size: 30px;
+  color: rgb(68, 226, 47);
+}
+.delete_card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.4);
+  width: 20px;
+  height: 20px;
+  border: none;
+  top: 0px;
+  left: 100%;
+  margin-left: -20px;
+  font-size: 10px;
+  transition: 0.3s;
+  z-index: 20;
+}
+.delete_card:hover {
+ color:#fff;
+}
+.card_sky {
+    text-align: center;
+    color: rgb(192, 190, 190);
+}
+.card_min_max {
+    text-align: center;
+    color: rgb(247, 226, 226);
+}
+.card_icon img {
+    margin: 0 auto;
+    display: block;
+    width: 70px;
+    height: 70px;
+}
+.wrapper_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.card_detail {
+    margin: 0 auto;
+    display: block;
+    width: 100px;
+}
+.card_detail {
+    margin: 0 auto;
+    display: block;
+    width: 100px;
+    transition: .3s;
+}
+.card_detail:hover {
+    color:#fff;
+    background: #000;
+}
+.city_result {
+    text-align: center;
+}
+.card_time {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  display: inline;
+}
+.refresh_icon {
+  width: 20px;
+}
+.card_data {
+  text-align: center;
+}
+.refresh_btn {
+  background: none;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.refresh_btn:hover {
+  animation: 1s linear 0s normal none infinite running rot;
+  -webkit-animation: 1s linear 0s normal none infinite running rot;
+  /* transform-origin: -10px -10px; */
+}
+
+@keyframes rot {
+ 
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rot {
+ 
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.card_data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
