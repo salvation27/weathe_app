@@ -1,30 +1,25 @@
 import React from "react";
 // import { useParams } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import  './Detail.css'
+import "./Detail.css";
 
 function Detail(props) {
+  // записываю в переменную все элементы из localStorage
   const items = JSON.parse(localStorage.getItem("items"));
-
-
+// на основе переданного айдишника обекта  , ищу его в массиве и записываю в еременную
   const thisProduct = items.find(
     (item) => item.id === props.match.params.productId
   );
 
-const { name, dataFetch } = thisProduct;
-const { temp, feels_like, humidity, pressure } = thisProduct.main;
-// const { forecast } = thisProduct.forecastHourly
-// const { forecast } = thisProduct
+  // дела десструктуризацию нужных переменных
+  const { name, dataFetch } = thisProduct;
+  const { temp, feels_like, humidity, pressure } = thisProduct.main;
+ 
+  // при  запросе forecast ,получаю 48 обектов ,беру только нужные 9
+  let n = 10;
+  const ten = thisProduct.forecastHourly.slice(1, n);
 
-console.log(thisProduct.forecastHourly);
 
-
-let n = 10;
-const ten = thisProduct.forecastHourly.slice(1, n);
-
-console.log(ten);
-  // console.log(thisProduct);
-  // console.log(thisProduct.cloud[0].icon);
   return (
     <div className="detail">
       <div className="container">
@@ -47,14 +42,6 @@ console.log(ten);
                 </div>
               </div>
             </div>
-
-            {/* <h3>
-              Cloud:{thisProduct.cloud[0].description}
-              <img
-                src={`http://openweathermap.org/img/wn/${thisProduct.cloud[0].icon}@2x.png`}
-                alt=""
-              />
-            </h3> */}
           </div>
           <div className="col-lg-7">
             <div className="weather_description_wrap">
@@ -80,7 +67,9 @@ console.log(ten);
                   <img src="/img/evaporation.png" alt="" />
                 </div>
                 <div className="descr_title">Precipitation:</div>
-                <div className="descr_text">{thisProduct.cloud[0].description}</div>
+                <div className="descr_text">
+                  {thisProduct.cloud[0].description}
+                </div>
               </div>
               <div className="description_item">
                 <div className="descr_icon">

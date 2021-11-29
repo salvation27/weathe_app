@@ -1,113 +1,44 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { randomColor } from "randomcolor";
-// import Draggable from "react-draggable";
 
 import { getForecast, fetchWeather } from "../../api/fetchWaether";
 
-import   "./Home.css";
-
-
-
+import "./Home.css";
 
 function App() {
-  // const [item, setItem] = useState("");
-const [items, setItems] = useState(
-  JSON.parse(localStorage.getItem("items")) || JSON.parse(localStorage.getItem("newItems")) ||
-    []
-);
-
-const timeNow = new Date().toLocaleString();
-
-const buttonRef  = useRef(null)
-
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(items))
-
-    // avtoRefresh()
-  }, [items]);
-
-// const avtoRefresh = async () => {
-//   await items.forEach(item=>{
-//     refreshItem(item.name)
-//   })
-// }
-
-
-
-
-  const deleteItem = (id) => {
-    setItems(items.filter((item) => item.id !== id));
-    setWeather({})
-  };
-
-  const refreshItem = async (name) => {
-    let newItem = items
-    // console.log("функция обновления");
-    // console.log("weather", weather);
-    let data = await fetchWeather(name);
-
-    
-    const {lat} = data.coord
-    const { lon } = data.coord;
-   
-    // console.log("lat", lat);
-    //  console.log("lon", lon);
-
-    let forecast = await getForecast(lat, lon);
-    // console.log("новое значение", data.main.temp_min);
-    // console.log("все крточки старое", items);
-    let oldEl = newItem.find((item) => item.name === name);
-    //  console.log("новое значение", data.weather[0]);
-    //  console.log("новое значение2", data);
-    //  console.log("старое значение", oldEl.cloud[0]);
-
-    // console.log("старое значение", oldEl.main.temp);
-    // let objCopy = Object.assign({}, obj);
-    // oldEl = Object.assign({}, data);
-    // oldEl = data
-    // console.log('старый обект',oldEl);
-
-    oldEl.forecastHourly = forecast.data.hourly;
-    oldEl.main = data.main;
-    oldEl.cloud[0] = data.weather[0];
-    oldEl.dataFetch = timeNow;
-
-    setWeather(data);
-    //  console.log('обновляем старый обект',oldEl);
-    // localStorage.clear();
-    localStorage.setItem("items", JSON.stringify(newItem));
-    setItems(JSON.parse(localStorage.getItem("items")));
-  };
-  // const keyPres = (e) => {
-  //   const code = e.keyCode || e.which
-  //   if(code === 13) {
-  //    newItem()
-  //   }
-  // }
-
-   
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
-  // const [error, setError] = useState('not found');
-  // const [time, setTime] = useState('');
-  // const [color,setColor] = useState(false)
 
+  // записываю пустой массив в переменную , если  localStorage пустой
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem("items")) ||
+      JSON.parse(localStorage.getItem("newItems")) ||
+      []
+  );
 
+  const timeNow = new Date().toLocaleString();
+
+// Rerender страницы зависит от переменной items
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
+
+// ф-ия получения карточки погоды
   const serch = async () => {
     const data = await fetchWeather(query);
     setWeather(data);
-    const lat = data.coord.lat
-    const lon = data.coord.lon
+    const lat = data.coord.lat;
+    const lon = data.coord.lon;
 
     console.log("lat", lat);
     console.log("lon", lon);
-    const forecast = await getForecast(lat,lon);
+    const forecast = await getForecast(lat, lon);
 
-    console.log('data',data);
+    console.log("data", data);
     console.log("forecast", forecast.data.hourly);
-  
+
     const { main, name } = data;
     if (data) {
       const newItem = {
@@ -125,13 +56,38 @@ const buttonRef  = useRef(null)
         }),
       };
       setItems((items) => [...items, newItem]);
-      // setError('')
-    
     } else {
       console.log("Поле ввода пустое");
     }
     setQuery("");
-    // setError("");
+  };
+// ф-ия обновления карточки погоды
+  const refreshItem = async (name) => {
+    let newItem = items;
+
+    let data = await fetchWeather(name);
+
+    const { lat } = data.coord;
+    const { lon } = data.coord;
+
+    let forecast = await getForecast(lat, lon);
+
+    let oldEl = newItem.find((item) => item.name === name);
+
+    oldEl.forecastHourly = forecast.data.hourly;
+    oldEl.main = data.main;
+    oldEl.cloud[0] = data.weather[0];
+    oldEl.dataFetch = timeNow;
+
+    setWeather(data);
+
+    localStorage.setItem("items", JSON.stringify(newItem));
+    setItems(JSON.parse(localStorage.getItem("items")));
+  };
+  // ф-ия удаления карточки погоды
+  const deleteItem = (id) => {
+    setItems(items.filter((item) => item.id !== id));
+    setWeather({});
   };
 
   return (
@@ -153,8 +109,10 @@ const buttonRef  = useRef(null)
                 <button onClick={serch}>Load</button>
                 {weather && (
                   <div className="city_result">
-                    Found a city: 
-                    {weather.name && <span className='found_city'> {weather.name}</span>}
+                    Found a city:
+                    {weather.name && (
+                      <span className="found_city"> {weather.name}</span>
+                    )}
                   </div>
                 )}
               </div>
@@ -193,7 +151,6 @@ const buttonRef  = useRef(null)
                         <button
                           className="refresh_btn"
                           onClick={() => refreshItem(item.name)}
-                          ref={buttonRef}
                         >
                           <img
                             className="refresh_icon"
