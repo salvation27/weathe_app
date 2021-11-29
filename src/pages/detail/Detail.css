@@ -1,0 +1,108 @@
+.forecast_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.forecast_card {
+    width: 100px;
+    height: 150px;
+    background:#ccc;
+    border-right:1px solid rgb(128, 128, 128);
+    border-left:1px solid rgb(128, 128, 128);
+    margin:2px;
+}
+.forecast_icon img {
+    width: 40px;
+}
+.forecast_time {
+    text-align: center;
+}
+.forecast_icon img {
+    display: block;
+    margin: 0 auto;
+}
+.forecast_temp {
+    text-align: center;
+}
+.detail_temp span {
+    font-size: 50px;
+    font-weight: 500;
+    color: rgb(210, 215, 226);
+}
+.detail_temp img {
+    width: 100px;
+    margin-left: 30px;
+}
+.detail_temp {
+display: flex;
+align-items: center;
+}
+.detail_city {
+    color: rgb(210, 215, 226);
+}
+.detail_city span {
+    font-size: 17px;
+    font-weight: 600;
+}
+.city {
+    font-size: 30px !important;
+}
+.detail_wrap_temp {
+    padding: 10px;
+}
+.descr_icon {
+width: 40px;
+height: 40px;
+padding: 7px;
+border-radius: 100px;
+-webkit-box-shadow: 0px 0px 4px 2px rgba(251, 252, 253, 0.2);
+-moz-box-shadow: 0px 0px 4px 2px rgba(251, 252, 253, 0.2);
+box-shadow: 0px 0px 4px 2px rgba(251, 252, 253, 0.2);
+}
+.weather_description_wrap , .detail_wrap_temp{
+-webkit-box-shadow: 3px 0px 7px 2px rgba(251, 252, 253, 0.2);
+-moz-box-shadow: 3px 0px 7px 2px rgba(251, 252, 253, 0.2);
+box-shadow: 3px 0px 7px 2px rgba(251, 252, 253, 0.2); 
+padding: 20px;
+}
+.descr_icon img{
+    width: 100%;
+}
+.description_item {
+    display: flex;
+    align-items: center;
+}
+.weather_description_wrap {
+    /* background:url('https://kartinkin.net/uploads/posts/2021-07/1625544287_33-kartinkin-com-p-chernoe-nebo-fon-krasivie-foni-33.png'); */
+    color: rgb(210, 215, 226);
+}
+.descr_title {
+    margin-left: 15px;
+    /* font-weight: 500; */
+}
+.descr_text{
+    margin-left: 5px;
+    font-weight: 500;
+} 
+.description_item {
+    margin-bottom: 10px;
+}
+.detail {
+    padding-top: 20px;
+}
+.forecast_wrap {
+    margin-top: 30px;
+}
+.blue_color {
+    color:rgb(51, 66, 207);
+}
+.red_color {
+    color: rgb(165, 28, 28);
+}
+.temp_update {
+    font-weight: 600;
+        font-size: 20px;
+}
+.descr_title {
+    font-weight: 300;
+}

@@ -144,3 +144,14 @@ box-shadow: 6px 10px 8px 0px rgba(0, 3, 6, 0.4);
   justify-content: center;
   margin-top: 10px;
 }
+
+.wrapper_wether_serch h1 {
+  color: #fff;
+  font-size: 30px;
+}
+.found_city {
+  color: aqua;
+}
+.city_result {
+  color:bisque
+}

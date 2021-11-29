@@ -1,0 +1,23 @@
+.menu_logo img {
+    height: 40px;
+}
+.menu_logo span {
+    color:#fff
+}
+.menu_wrap {
+    display: flex;
+    align-items: center;
+}
+.menu_logo {
+    display: flex;
+    align-items: center;
+}
+.menu_wrap a {
+    transition: .3s;
+}
+.menu_wrap a:hover {
+    color:rgb(103, 214, 241)
+}
+.menu_items {
+    margin-left: 30px;
+}

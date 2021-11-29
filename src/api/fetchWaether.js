@@ -12,11 +12,25 @@ export const fetchWeather = async (query) => {
      appid: API_key,
    }
  })
-//  .then((response)=>{
-//    console.log('ответ',response)
-//  })
-//  .catch((error)=>{
-//    console.log('ошибка',error)
-//  })
  return data
 }
+
+// export const getForecast = async (lat, lon) => {
+//   const { data } = await axios.get("https://api.openweathermap.org/data/2.5/onecall",
+//     {
+//       params: {
+//         lat:lat,
+//         lon:lon,
+//         units: "metric",
+//         appid: API_key,
+//       },
+//     }
+//   );
+//   return data;
+// }
+
+export const getForecast =  (lat,lon) => {
+  return axios.get(
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_key}`
+  );
+};
