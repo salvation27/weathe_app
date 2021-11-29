@@ -125,7 +125,9 @@ function App() {
                       style={{ backgroundColor: item.color }}
                     >
                       <div className="card_name">{item.name}</div>
-                      <div className="card_temp">{item.main.temp}° C</div>
+                      <div className="card_temp">
+                        {Math.round(item.main.temp)}° C
+                      </div>
                       <div className="card_sky">{item.cloud[0].main}</div>
                       <div className="card_min_max">
                         {item.main.temp_min}(min)/
