@@ -106,3 +106,8 @@ padding: 20px;
 .descr_title {
     font-weight: 300;
 }
+@media screen and (max-width: 992px) {
+.weather_description_wrap {
+    margin-top: 20px;
+}
+}

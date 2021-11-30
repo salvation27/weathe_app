@@ -155,3 +155,18 @@ box-shadow: 6px 10px 8px 0px rgba(0, 3, 6, 0.4);
 .city_result {
   color:bisque
 }
+@media screen and (max-width: 992px) {
+.wrapper_wether_serch {
+    width: 100%;
+}
+}
+@media screen and (max-width: 700px) {
+.wrapper_list {
+  justify-content: space-between;
+}
+}
+@media screen and (max-width: 426px) {
+.wrapper_list {
+  justify-content: center;
+}
+}
