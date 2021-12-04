@@ -7,10 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* background:url('https://fullhdoboi.ru/wp-content/uploads/_ph/6/912351086.jpg') no-repeat ;
   background-size: cover; */
-  background: rgb(45, 128, 131);
-  background: rgb(26, 116, 119);
+  /* background: rgb(45, 128, 131);
+  background: rgb(26, 116, 119); */
    /* background: #939CB0;
   background: #4F667A; */
+  background: #4F4F4F;
+  background: rgb(46, 44, 44);
 }
 
 code {

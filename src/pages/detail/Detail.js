@@ -104,7 +104,7 @@ function Detail(props) {
                     <div className="forecast_temp blue_color">
                       {item.wind_speed}m/s
                     </div>
-                    <div className="forecast_temp red_color">
+                    <div className="forecast_temp blue_color">
                       {Math.round(item.pressure * 0.75)}mm
                     </div>
                   </div>
