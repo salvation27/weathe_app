@@ -1,3 +1,7 @@
+:root{
+  --main-text-color-white_theme: #000;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,10 +15,16 @@ body {
   background: rgb(26, 116, 119); */
    /* background: #939CB0;
   background: #4F667A; */
-  background: #4F4F4F;
-  background: rgb(46, 44, 44);
+  /* background: #4F4F4F; */
+  /* background: rgb(46, 44, 44); */
 }
-
+#root {
+ height: 100vh;
+}
+.App{
+background: rgb(46, 44, 44);
+height: 100%;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -33,4 +43,19 @@ a {
 }
 .br {
   border:1px solid red
+}
+
+/* для светлой темы */
+
+.white_theme{
+  background:#fff;
+}
+.white_theme .menu_logo span{
+  color:var(--main-text-color-white_theme)
+}
+.white_theme .wrapper_wether_serch h1 {
+color:var(--main-text-color-white_theme)
+}
+.white_theme .city_result {
+  color:var(--main-text-color-white_theme)
 }
